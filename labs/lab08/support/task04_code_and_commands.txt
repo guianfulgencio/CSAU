@@ -1,0 +1,15 @@
+{
+    "Cisco-IOS-XE-native:Loopback": { 
+        "name": 200, 
+        "description": "Configured_with_Postman", 
+        "ip": { 
+            "address": { 
+                "primary": { 
+                    "address": "10.200.2.2", 
+                    "mask": "255.255.255.0" 
+                } 
+            } 
+        } 
+    } 
+}
+

@@ -1,0 +1,14 @@
+---
+
+snmp:
+  contact: cisco_lab  
+  location: United_States  
+  communities:  
+    - community: public  
+      type: RO  
+    - community: private  
+      type: RW  
+    - community: secure  
+      type: RW  
+    - community: public123  
+      type: RO 

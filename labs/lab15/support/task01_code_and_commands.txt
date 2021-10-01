@@ -1,0 +1,39 @@
+ansible-playbook -i inventory get_facts.yml
+
+ansible-playbook -i inventory get_facts.yml -v
+
+        register: output
+
+      - name: VIEW DATA STORED IN OUTPUT  
+        debug:  
+          var: output 
+
+ansible-playbook -i inventory get_facts.yml
+
+      - name: VIEW SPECIFIC KEY
+        debug:
+          var: ansible_net_version
+
+ansible-playbook -i inventory get_facts.yml
+
+     - name: COLLECT ONLY THE CONFIG AND DEFFAULT FACTS 
+       ios_facts: 
+         gather_subset: 
+           - config 
+       register: config 
+
+     - name: DO NOT COLLECT HARDWARE FACTS 
+       ios_facts: 
+         gather_subset: 
+           - "!hardware" 
+       register: not_hardware 
+
+     - name: VIEW CONFIG 
+       debug: 
+         var: config 
+
+     - name: VIEW EVERTHING EXCEPT HARDWARE 
+       debug: 
+         var: not_hardware
+
+ansible-playbook -i inventory get_facts.yml

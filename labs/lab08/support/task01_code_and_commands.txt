@@ -1,0 +1,14 @@
+application/yang-data+json
+
+https://csr1kv1/restconf/data/Cisco-IOS-XE-native:native?content=config
+
+https://csr1kv1/restconf/data/Cisco-IOS-XE-native:native/version
+
+https://csr1kv1/restconf/data/Cisco-IOS-XE-native:native/license/udi/sn
+
+https://csr1kv1/restconf/data/Cisco-IOS-XE-native:native/interface
+
+https://csr1kv1/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=2
+
+https://csr1kv1/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=2/ip/address
+

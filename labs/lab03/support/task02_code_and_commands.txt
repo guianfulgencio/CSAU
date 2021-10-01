@@ -1,0 +1,8 @@
+>>> commands = ['interface GigabitEthernet1', 'description DESCRIPTION WAS CHANGED VIA PYTHON']
+
+>>> r1.send_config_set(commands)
+
+>>> r1.send_command("show interface GigabitEthernet1 description")
+
+csr1kv1(config-if)#description DESCRIPTION WAS CHANGED VIA PYTHON
+

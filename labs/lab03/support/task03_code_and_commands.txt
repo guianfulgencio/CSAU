@@ -1,0 +1,8 @@
+snmp-server location NYC
+snmp-server contact NET_ADMIN
+
+snmp-server location SJC
+snmp-server contact NET_OPS
+
+snmp-server location LONDON
+snmp-server contact NET_ENGINEER

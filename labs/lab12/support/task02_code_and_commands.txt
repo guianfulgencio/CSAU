@@ -1,0 +1,6 @@
+python task02_manage_bgp.py --help
+
+python task02_manage_bgp.py --host csr1kv1 --intent files/csr1kv1_intent_file.yml --add csr1kv2
+
+python task02_manage_bgp.py --host csr1kv1 --intent files/csr1kv1_intent_file.yml --add csr1kv3
+

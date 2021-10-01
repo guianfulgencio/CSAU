@@ -1,0 +1,9 @@
+git checkout -b feature1
+
+git commit -m "Added inventory feature1 - csr1kv4"
+
+git checkout -b feature2
+
+git add inventory
+git commit -m "Added inventory feature2 - csr1kv5"
+

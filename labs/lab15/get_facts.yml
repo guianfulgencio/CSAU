@@ -1,0 +1,11 @@
+---
+  - name: GATHER FACTS FROM CISCO DEVICES 
+    hosts: all 
+    connection: network_cli 
+    gather_facts: no 
+
+    tasks: 
+
+      - name: GATHER ALL FACTS 
+        ios_facts: 
+

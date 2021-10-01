@@ -1,0 +1,16 @@
+
+---
+
+csr1kv1:
+  expected_hostname: cisco-csr1
+  supported_os_versions:
+    - '16.8'
+    - '16.10'
+  expected_lldp_neighbors: 2
+
+csr1kv2:
+  expected_hostname: csr1kv2
+  supported_os_versions:
+    - '16.8'
+    - '16.10'
+  expected_lldp_neighbors: 3

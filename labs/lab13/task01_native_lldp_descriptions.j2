@@ -1,0 +1,13 @@
+<config>
+    <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+        <interface>
+            {% for interface in interfaces %}
+            <{{ interface.type }}>
+                <name>{{ interface.index }}</name>
+                <description>{{ interface.description }}</description>
+            </{{ interface.type }}>
+            {% endfor %}
+        </interface>
+    </native>
+</config>
+

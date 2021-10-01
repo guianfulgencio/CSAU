@@ -1,0 +1,23 @@
+---
+
+  - name: MANAGE ACLS 
+    hosts: all 
+    connection: network_cli 
+    gather_facts: no 
+
+    tasks: 
+
+      - name: Configure ACL on IOSXE 
+        ios_config: 
+          parents: ip access-list extended INBOUND 
+          commands: 
+            - permit ip host 172.16.2.2 any log 
+            - permit ip host 172.16.1.1 any log 
+            - permit ip host 172.16.3.3 any log 
+            - permit ip host 172.16.4.4 any log 
+            - permit ip host 172.16.5.5 any log 
+            - permit ip host 172.16.6.6 any log 
+          before: no ip access-list extended INBOUND 
+          replace: block 
+          # match: exact
+

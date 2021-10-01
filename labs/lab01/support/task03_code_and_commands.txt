@@ -1,0 +1,2 @@
+ansible-playbook -i inventory neighbors-pb.yml
+

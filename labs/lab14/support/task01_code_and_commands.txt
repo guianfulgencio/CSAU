@@ -1,0 +1,34 @@
+[cpe]
+csr1kv1
+csr1kv3
+
+[core]
+csr1kv2
+
+
+[usa:children]
+cpe
+core
+
+[all:vars]
+ansible_ssh_pass=cisco
+ansible_user=cisco
+ansible_network_os=ios
+
+[cpe:vars]
+location=California
+
+[core:vars]
+location=NYC
+
+
+[cpe]
+csr1kv1  loopback_id=1 location=SF
+csr1kv3  loopback_id=3 location=LA
+
+[core]
+csr1kv2  loopback_id=2
+
+
+ansible-playbook -i inventory snmp_config.yml
+

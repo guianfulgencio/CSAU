@@ -1,0 +1,40 @@
+<config>
+    <interfaces xmlns="http://openconfig.net/yang/interfaces"  xmlns:oc-if="http://openconfig.net/yang/interfaces">
+        {% for interface in interfaces %}
+        <interface>
+            <name>{{ interface.name }}</name>
+            <config>
+                <name>{{ interface.name }}</name>
+                <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:softwareLoopback</type>
+                <enabled>true</enabled>
+            </config>
+            <subinterfaces>
+                <subinterface>
+                    <index>0</index>
+                    <config>
+                        <index>0</index>
+                        <enabled>true</enabled>
+                    </config>
+                    <ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+                        <addresses>
+                            <address>
+                                <ip>{{ interface.ip }}</ip>
+                                <config>
+                                    <ip>{{ interface.ip }}</ip>
+                                    <prefix-length>{{ interface.prefix }}</prefix-length>
+                                </config>
+                            </address>
+                        </addresses>
+                    </ipv4>
+                    <ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+                        <config>
+                            <enabled>false</enabled>
+                        </config>
+                    </ipv6>
+                </subinterface>
+            </subinterfaces>
+        </interface>
+        {% endfor %}
+    </interfaces>
+</config>
+

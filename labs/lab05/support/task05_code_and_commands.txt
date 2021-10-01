@@ -1,0 +1,12 @@
+git checkout -b backup_script_branch
+
+cp /home/student/backup_script.py test-scripts/
+
+git add test-scripts/backup_script.py
+
+git commit -m "Added backup script"
+
+git push origin backup_script_branch
+
+git commit -m "Added inventory file"
+

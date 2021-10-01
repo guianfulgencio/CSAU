@@ -1,0 +1,31 @@
+---
+
+  - name: GENERATE REPORT TABLE 
+    hosts: all 
+    connection: network_cli 
+    gather_facts: no 
+
+
+    tasks: 
+
+      - name: GATHER ALL FACTS 
+        ios_facts: 
+
+      - name: CREATE TABLE 
+        set_fact: 
+          table: | 
+
+                  +----------+--------------+ 
+                  |  HOST    |  {{ inventory_hostname }}     | 
+                  +----------+--------------+ 
+                  | VERSION  | {{ ansible_net_version }}     | 
+                  +----------+--------------+ 
+                  | SERIAL#  | {{ ansible_net_serialnum }}  | 
+                  +----------+--------------+ 
+                  | MODEL    | {{ ansible_net_model }}     | 
+                  +----------+--------------+ 
+
+      - name: VIEW TABLE 
+        debug: 
+          msg: "{{ table.split('\n') }}" 
+

@@ -1,0 +1,25 @@
+snmp:
+  contact: cisco_lab 
+  location: United_States 
+  communities: 
+    - community: public 
+      type: RO 
+    - community: private 
+      type: RW 
+    - community: secure 
+      type: RW 
+    - community: public123 
+      type: RO 
+
+snmp-server community {{ snmp_community_ro }} RO
+snmp-server community {{ snmp_community_rw }} RW
+snmp-server location {{ snmp_location }}
+snmp-server contact {{ snmp_contact }}
+
+snmp-server contact {{ snmp['contact'] }}
+snmp-server location {{ snmp['location'] }}
+{% for snmp_config in snmp['communities'] %}
+snmp-server community {{ snmp_config['community'] }} {{ snmp_config['type'] }}
+{% endfor %}
+
+ansible-playbook -i inventory build_push_snmp.yml -v

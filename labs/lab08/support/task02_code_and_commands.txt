@@ -1,0 +1,10 @@
+application/yang-data+json
+
+https://csr1kv1/restconf/data/Cisco-IOS-XE-native:native/snmp-server/contact
+
+https://csr1kv1/restconf/data/Cisco-IOS-XE-native:native/snmp-server/location
+
+https://csr1kv1/restconf/data/Cisco-IOS-XE-native:native/snmp-server/community
+
+https://csr1kv1/restconf/data/Cisco-IOS-XE-native:native/snmp-server
+

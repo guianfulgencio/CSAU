@@ -1,0 +1,5 @@
+for router, details in devnet.inventory.items():
+
+    for bgp_neighbor in bgp_data["peers"]:
+
+    bgp_commands.append("router bgp {}".format(bgp_data["asn"]))

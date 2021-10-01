@@ -1,0 +1,44 @@
+---
+
+hostname: cisco-sjc-rtr-01
+
+
+# hostname standards must include 3 letter airport codes
+
+os_version: 16.09
+
+vlans_list:
+  - 100 
+  - 200 
+  - 300
+
+#root key
+snmp:
+  #sub_key and its value 
+  ro: public 
+  #sub_key and its value 
+  rw: private
+
+snmp:
+  ro: 
+    - public 
+    - cisco 
+  rw: 
+    - private 
+    - secure 
+  contact: Cisco Student 
+  location: San Jose
+
+vlans:
+  - id: 100 
+    name: server_vlan 
+  - id: 200 
+    name: voice_vlan 
+  - id: 300 
+    name: video_vlan
+
+vlans_dictionary:
+  100: server_vlan 
+  200: voice_vlan 
+  300: video_vlan
+

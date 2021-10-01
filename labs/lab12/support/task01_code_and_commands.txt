@@ -1,0 +1,13 @@
+python task01_lldp_descriptions.py 
+
+python task01_lldp_descriptions.py --host csr1kv1
+
+    restconf_headers = { 
+        "Accept": "application/yang-data+json",
+        "Content-Type": "application/yang-data+json",
+
+show interfaces description 
+
+show lldp neighbors
+
+python task01_lldp_descriptions.py --host csr1kv1

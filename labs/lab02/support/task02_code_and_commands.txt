@@ -1,0 +1,7 @@
+>>> inventory['nycr02'] = {}
+>>> inventory['nycr02']['vendor'] = 'cisco'
+>>> inventory['nycr02']['os_version'] = 15.8
+>>> inventory['nycr02']['platform'] = 'csr1kv'
+>>> inventory['nycr02']['os_type'] = 'ios'
+>>> inventory['nycr02']['hostname'] = 'csr1kv2'
+

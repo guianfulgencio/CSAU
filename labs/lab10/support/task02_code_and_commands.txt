@@ -1,0 +1,14 @@
+    inventory_file = "inventory.yml"
+
+    with open(inventory_file) as fh:
+        inventory = yaml.safe_load(fh)
+
+    return inventory
+
+csr1kv2:
+  username: cisco
+  password: cisco
+csr1kv3:
+  username: cisco
+  password: cisco
+

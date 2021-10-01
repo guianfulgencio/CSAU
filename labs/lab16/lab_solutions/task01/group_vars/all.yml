@@ -1,0 +1,6 @@
+---
+
+  snmp_community_ro: public 
+  snmp_community_rw: private 
+  snmp_location: United_States 
+  snmp_contact: cisco_lab 

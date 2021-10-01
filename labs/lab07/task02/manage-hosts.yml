@@ -1,0 +1,31 @@
+---
+  - name: MANAGE HOSTS
+    hosts: all
+    become: yes
+    gather_facts: no
+    tasks:
+      - name: Ensure python-pip package is installed
+        apt:
+          name: python-pip
+          update_cache: no
+        become: true
+  
+      - name: Ensure Python packages are installed
+        pip:
+          name: 
+            - requests 
+            - netmiko
+            - pyyaml
+            - future
+            - console-menu
+            - prettytable
+            - ciscoconfparse
+
+      - name: Ensure host mappings are in /etc/hosts
+        blockinfile:
+          path: /etc/hosts
+          block: |
+            10.254.0.1 csr1kv1
+            10.254.0.2 csr1kv2
+            10.254.0.3 csr1kv3
+          marker: "# {mark} ANSIBLE MANAGED HOSTS"

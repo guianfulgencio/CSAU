@@ -1,0 +1,21 @@
+---
+
+ - name: PLAY 1 - MANAGING INTERFACES 
+   hosts: all 
+   connection: network_cli 
+   gather_facts: no 
+
+   tasks: 
+
+    - name:  TASK 1 - MANAGE INTERFACES 
+      ios_config: 
+        parents: interface Loopback0 
+        commands: 
+          - ip address 172.16.1.{{ loopback_id }} 255.255.255.0 
+          - description Configured_with_Ansible 
+
+
+ansible-playbook -i inventory manage_interfaces.yml -v
+
+ansible-doc ios_config
+

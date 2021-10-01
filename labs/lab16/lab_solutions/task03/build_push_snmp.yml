@@ -1,0 +1,19 @@
+---
+
+  - name: GENERATE & DEPLOY CONFIGURATIONS 
+    hosts: all 
+    connection: network_cli 
+    gather_facts: no 
+
+    tasks: 
+
+      - name: GENERATE CONFIGURATIONS 
+        template: 
+          src: snmp.j2 
+          dest: ./configs/{{ inventory_hostname }}-snmp_configs.cfg 
+        tags: build
+
+      - name: DEPLOY CONFIGURATIONS 
+        ios_config: 
+          src: ./configs/{{ inventory_hostname }}-snmp_configs.cfg 
+        tags: push

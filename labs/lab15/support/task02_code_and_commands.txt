@@ -1,0 +1,32 @@
+ansible-playbook -i inventory show_commands.yml
+
+        register: output 
+
+      - name: VIEW VERSION OUTPUT 
+        debug: 
+          var: output
+
+ansible-playbook -i inventory show_commands.yml
+
+          var: output["stdout"]
+
+ansible-playbook -i inventory show_commands.yml
+
+      - name: SEND LIST OF COMMANDS
+        ios_command: 
+          commands: 
+            - show version 
+            - show ip interface brief
+        register: output 
+
+
+      - name: VIEW MULTIPLE COMMANDS OUTPUTS
+        debug: 
+          var: output["stdout"] 
+
+ansible-playbook -i inventory show_commands.yml
+
+          var: output["stdout"][1]
+
+ansible-playbook -i inventory show_commands.yml
+

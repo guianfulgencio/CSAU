@@ -1,0 +1,10 @@
++----------+-----------------+-----------------------+--------------------+
+| Hostname | Local Interface |        Neighbor       | Neighbor Interface |
++----------+-----------------+-----------------------+--------------------+
+{% for entry in response['results'] %}
+{% set neighbors = entry['json']["Cisco-IOS-XE-lldp-oper:lldp-entries"]["lldp-entry"] %}
+{% for neighbor in neighbors %}
+| {{ entry['item'] }}  | {{ neighbor['local-interface'] | center(width=15) }} |  {{ neighbor['device-id'] }} | {{ neighbor['connecting-interface'] | center(width=16) | center(width=18) }} |
+{% endfor %}
+{% endfor %}
++----------+-----------------+-----------------------+--------------------+

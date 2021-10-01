@@ -1,0 +1,8 @@
+        tags: build
+
+        tags: push
+
+ansible-playbook -i inventory build_push_snmp.yml --tags build
+
+ansible-playbook -i inventory build_push_snmp.yml --tags push
+

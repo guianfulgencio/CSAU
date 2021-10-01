@@ -1,0 +1,44 @@
+---
+
+  - name: GENERATE NEIGHBORS REPORT
+    hosts: all
+    connection: local
+    gather_facts: no
+
+    vars_prompt:
+      - name: username
+        prompt: "Enter Username"
+        private: no
+      - name: password
+        prompt: "Enter Password"
+        private: yes
+
+    tasks:
+
+      - name: MAKE RESTCONF API CALL
+        uri:
+          url: https://{{ inventory_hostname }}/restconf/data/Cisco-IOS-XE-lldp-oper:lldp-entries/
+          method: GET
+          user: "{{ username }}"
+          password: "{{ password }}"
+          return_content: yes
+          validate_certs: no
+          headers:
+            Content-Type: application/yang-data+json
+            Accept: application/yang-data+json
+        register: response
+        loop: "{{ play_hosts }}"
+        run_once: true
+
+      - name: CREATE REPORTS DIRECTORY
+        file: 
+          path: ./reports
+          state: directory
+        run_once: true
+          
+      - name: GENERATE REPORT
+        template:
+          src: neighbors.j2
+          dest: ./reports/neighbors.txt
+        run_once: true
+

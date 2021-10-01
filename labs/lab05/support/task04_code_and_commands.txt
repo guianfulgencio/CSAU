@@ -1,0 +1,4 @@
+cp /home/student/compliance_script.py test-scripts/compliance_script.py
+
+git commit -m "Added compliance_script.py file"
+

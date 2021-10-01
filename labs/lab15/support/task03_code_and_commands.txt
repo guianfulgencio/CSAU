@@ -1,0 +1,2 @@
+ansible-playbook -i inventory save_show_commands.yml
+

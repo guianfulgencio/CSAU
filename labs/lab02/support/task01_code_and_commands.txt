@@ -1,0 +1,6 @@
+>>> print("Hostname: {} and IOS Version:{}".format(hostname_upper,ios_version))
+
+>>> vlan_names = ["HR", "R_and_D", "Marketing", "Accounting", "Sales", "Engineering"]
+
+>>> device_facts = {"vendor": "cisco", "os_version": 16.8, "platform": "csr1kv", "os_type": "ios", "hostname": "csr1kv1"}
+

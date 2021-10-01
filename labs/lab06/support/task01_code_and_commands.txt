@@ -1,0 +1,3 @@
+git config --global user.email "student@cisco.com" 
+git config --global user.name "Cisco Student"
+

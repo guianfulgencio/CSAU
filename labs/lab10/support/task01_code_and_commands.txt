@@ -1,0 +1,88 @@
+HTTP_HEADERS = {
+    "Content-Type": "application/yang-data+json", 
+    "Accept": "application/yang-data+json", 
+}
+
+HTTP_AUTH = HTTPBasicAuth("cisco", "cisco")
+
+requests.packages.urllib3.disable_warnings()
+
+def get_serial_data(host):
+
+    url = "https://{host}/restconf/data/Cisco-IOS-XE-native:native" "/license/udi/sn".format(host=host)
+
+    response = requests.get(url=url, headers=HTTP_HEADERS, auth=HTTP_AUTH, verify=False)
+
+    print("Status Code: {}".format(response.status_code))
+    print("Returned Data:\n{}".format(response.text))
+
+        devices[host]["serial_number"] = get_serial_data(host)
+
+    print(type(response.text))
+
+    result = json.loads(response.text)
+
+    print(type(result))
+
+    serial_data = result["Cisco-IOS-XE-native:sn"]
+    return serial_data
+
+def main():
+
+    structured_data = structure_data()
+
+    heading = "| {:^10} | {:^10} | {:^15} |".format(
+        "Device", "Hostname", "Serial Number"
+    )
+    print(len(heading) * "-")
+    print(heading)
+    print(len(heading) * "-")
+    for hostname, details in structured_data.items():
+        print(
+            "| {:^10} | {:^10} | {:^15} |".format(
+                hostname,
+                details["hostname"],
+                details["serial_number"],
+            )
+        )
+        print(len(heading) * "-")
+
+def get_version_data(host):
+
+    url = "https://{host}/restconf/data/Cisco-IOS-XE-native:native" "/version".format(host=host)
+
+    response = requests.get(url, headers=HTTP_HEADERS, auth=HTTP_AUTH, verify=False)
+
+    print(dir(response))
+    print(response.text)
+
+        devices[host]["os_version"] = get_version_data(host)
+
+    print(type(response.json()))
+
+    result = response.json()
+
+    version_data = result["Cisco-IOS-XE-native:version"]
+    return version_data
+
+def main():
+
+    structured_data = structure_data()
+
+    heading = "| {:^10} | {:^10} | {:^15} | {:^12} |".format(
+        "Device", "Hostname", "Serial Number", "OS Version"
+    )
+    print(len(heading) * "-")
+    print(heading)
+    print(len(heading) * "-")
+    for hostname, details in structured_data.items():
+        print(
+            "| {:^10} | {:^10} | {:^15} | {:^12} |".format(
+                hostname,
+                details["hostname"],
+                details["serial_number"],
+                details["os_version"],
+            )
+        )
+        print(len(heading) * "-")
+

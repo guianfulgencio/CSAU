@@ -1,0 +1,27 @@
+<config>
+    <routing-policy xmlns="http://openconfig.net/yang/routing-policy"  xmlns:oc-rpol="http://openconfig.net/yang/routing-policy">
+        <defined-sets>
+            <prefix-sets>
+                <prefix-set>
+                    <prefix-set-name>BGP-PL-LOOPBACKS</prefix-set-name>
+                    <config>
+                        <prefix-set-name>BGP-PL-LOOPBACKS</prefix-set-name>
+                    </config>
+                    <prefixes>
+                        {% for interface in interfaces %}
+                        <prefix>
+                            <ip-prefix>{{ interface.ip }}/{{ interface.prefix }}</ip-prefix>
+                            <masklength-range>exact</masklength-range>
+                            <config>
+                                <ip-prefix>{{ interface.ip }}/{{ interface.prefix }}</ip-prefix>
+                                <masklength-range>exact</masklength-range>
+                            </config>
+                        </prefix>
+                        {% endfor %}
+                    </prefixes>
+                </prefix-set>
+            </prefix-sets>
+        </defined-sets>
+    </routing-policy>
+</config>
+

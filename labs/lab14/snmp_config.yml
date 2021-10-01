@@ -1,0 +1,16 @@
+---
+
+  - name: PLAY 1 - UPDATE SNMP CONFIGURATION 
+    hosts: all 
+    connection: network_cli 
+    gather_facts: no 
+
+    tasks: 
+
+      - name: TASK 1 - LIST OF COMMANDS 
+        ios_config: 
+          commands: 
+            - snmp-server community cisco-course RO 
+            - snmp-server location CA_HQ 
+            - snmp-server contact CISCO_LAB 
+

@@ -1,0 +1,5 @@
+interfaces:
+  - name: Loopback10
+    ip: 10.3.3.3
+    prefix: 32
+

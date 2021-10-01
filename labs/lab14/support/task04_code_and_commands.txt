@@ -1,0 +1,35 @@
+ansible-playbook -i inventory acl_config.yml -v
+
+            - permit ip host 172.16.4.4 any log
+
+ansible-playbook -i inventory acl_config.yml -v
+
+            - permit ip host 172.16.5.5 any log
+          before: no ip access-list extended INBOUND
+
+ansible-playbook -i inventory acl_config.yml -v
+
+            - permit ip host 172.16.2.2 any log 
+            - permit ip host 172.16.1.1 any log 
+            - permit ip host 172.16.3.3 any log 
+            - permit ip host 172.16.4.4 any log 
+            - permit ip host 172.16.5.5 any log 
+          before: no ip access-list extended INBOUND 
+          match: exact
+
+ansible-playbook -i inventory acl_config.yml -v
+
+            - permit ip host 172.16.2.2 any log 
+            - permit ip host 172.16.1.1 any log 
+            - permit ip host 172.16.3.3 any log 
+            - permit ip host 172.16.4.4 any log 
+            - permit ip host 172.16.5.5 any log 
+            - permit ip host 172.16.6.6 any log 
+          before: no ip access-list extended INBOUND 
+          replace: block 
+          # match: exact
+
+ansible-playbook -i inventory acl_config.yml -v -check
+
+ansible-playbook -i inventory acl_config.yml -v
+

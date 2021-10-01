@@ -1,0 +1,35 @@
+---
+  - name: GATHER FACTS FROM CISCO DEVICES 
+    hosts: all 
+    connection: network_cli 
+    gather_facts: no 
+
+    tasks: 
+
+      - name: GATHER ALL FACTS 
+        ios_facts: 
+        register: output
+
+      - name: VIEW SPECIFIC KEY
+        debug:
+          var: ansible_net_version
+
+     - name: COLLECT ONLY THE CONFIG AND DEFFAULT FACTS 
+       ios_facts: 
+         gather_subset: 
+           - config 
+       register: config 
+
+     - name: DO NOT COLLECT HARDWARE FACTS 
+       ios_facts: 
+         gather_subset: 
+           - "!hardware" 
+       register: not_hardware 
+
+     - name: VIEW CONFIG 
+       debug: 
+         var: config 
+
+     - name: VIEW EVERTHING EXCEPT HARDWARE 
+       debug: 
+         var: not_hardware

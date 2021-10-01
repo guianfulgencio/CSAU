@@ -1,0 +1,5 @@
+mkvirtualenv yang-venv -p python2
+
+./start.sh &
+
+http://localhost:8088/static/YangExplorer.html

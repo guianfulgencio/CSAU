@@ -1,0 +1,11 @@
+ansible-playbook -i inventory snmp_config.yml
+
+            - snmp-server community ansible_lab01 RO
+
+ansible-playbook -i inventory snmp_config.yml -v
+
+            - no snmp-server community ansible_lab01 RO 
+
+ansible-playbook -i inventory snmp_config.yml --check 
+
+ansible-playbook -i inventory snmp_config.yml -v --check

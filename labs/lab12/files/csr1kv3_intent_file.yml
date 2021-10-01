@@ -1,0 +1,11 @@
+bgp:
+  asn: 65003
+  neighbors:
+    csr1kv1:
+      address: 10.13.0.1
+      peer_as: 65001
+
+    csr1kv2:
+      address: 10.23.0.2
+      peer_as: 65002
+

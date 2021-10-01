@@ -1,0 +1,19 @@
+---
+  - name: OPERATIONAL COMMANDS ON CISCO 
+    hosts: all 
+    connection: network_cli 
+    gather_facts: no 
+
+    tasks: 
+
+      - name: SEND LIST OF COMMANDS
+        ios_command: 
+          commands: 
+            - show version 
+            - show ip interface brief
+        register: output 
+
+
+      - name: VIEW MULTIPLE COMMANDS OUTPUTS
+        debug: 
+          var: output["stdout"][1]

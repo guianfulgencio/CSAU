@@ -1,0 +1,9 @@
+python task04_routing_policy.py --host csr1kv1 --intent files/csr1kv1_intent_file.yml
+
+python task04_routing_policy.py --host csr1kv2 --intent files/csr1kv2_intent_file.yml
+
+python task04_routing_policy.py --host csr1kv3 --intent files/csr1kv3_intent_file.yml
+
+show ip bgp neighbors 10.12.0.2 advertised-routes
+
+show ip bgp neighbors 10.13.0.3 advertised-routes

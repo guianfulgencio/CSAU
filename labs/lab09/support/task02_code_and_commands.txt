@@ -1,0 +1,41 @@
+facts = {
+    "hostname": "csr1kv1",
+    "os_version": "16.09",
+    "snmp_config": {
+        "location": "San Jose",
+        "contact": "admin@cisco.com",
+        "ro": "public",
+        "rw": "private",
+    },
+    "interfaces": [
+        {
+            "name": "Gig04",
+            "description": "Management",
+            "ip_addr": "10.254.0.1",
+        }
+    ],
+}
+
+print(facts["hostname"])
+
+print(facts)
+
+import json
+
+print(json.dumps(facts, indent=4))
+
+facts_str = json.dumps(facts)
+
+type(facts_str)
+
+json_facts = '{"hostname": "csr1kv1", "uptime": "2 days", "serial_number": "X9872493"}'
+
+print(json_facts)
+
+print(json_facts["uptime"])
+
+facts_dict = json.loads(json_facts)
+
+type(facts_dict)
+
+print(facts_dict["uptime"]) 

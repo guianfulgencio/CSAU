@@ -1,0 +1,49 @@
+pyang RFC/ietf-interfaces.yang -f tree -p RFC/
+
+pyang RFC/ietf-interfaces.yang -f tree -p RFC/ > pyang_output.txt
+
+pyang RFC/ietf-interfaces.yang -f tree -p RFC/ --tree-depth=3
+
+pyang RFC/ietf-interfaces.yang -f sample-xml-skeleton -p RFC/ --tree-depth=5
+
+pyang RFC/ietf-interfaces.yang --lint
+
+pyang RFC/ietf-interfaces.yang --lint -p RFC/
+
+pyang RFC/ietf-interfaces.yang --lint --no-path-recurse
+
+pyang RFC/ietf-interfaces.yang --lint -p RFC/ --no-path-recurse
+
+export PYBINDPLUGIN=`/usr/bin/env python -c 'import pyangbind; import os; print("%s/plugin" % os.path.dirname(pyangbind.__file__))'`
+
+echo $PYBINDPLUGIN
+
+pyang RFC/ietf-interfaces.yang --plugindir $PYBINDPLUGIN -f pybind -p RFC/ > ietf_interfaces.py
+
+python
+
+import ietf_interfaces
+
+import json 
+
+dir(ietf_interfaces)dir(ietf_interfaces)
+
+interfaces = ietf_interfaces.ietf_interfaces()
+
+if_gig1 = interfaces.interfaces.interface.add("GigabitEthernet1")
+
+dir(if_gig1) 
+
+if_gig1.description = "MGMT Interface"
+
+if_gig1.enabled = True
+
+if_gig2 = interfaces.interfaces.interface.add("GigabitEthernet2")
+if_gig3 = interfaces.interfaces.interface.add("GigabitEthernet3")
+if_gig2.description = "ISP Interface"
+if_gig2.enabled = True
+if_gig3.description = "Parked Interface"
+if_gig3.enabled = False
+
+print(json.dumps(interfaces.get(), indent=4))
+

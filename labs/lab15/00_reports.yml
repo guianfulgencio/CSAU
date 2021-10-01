@@ -1,0 +1,13 @@
+---
+
+  - name: GENERATE REPORT TABLE 
+    hosts: all 
+    connection: network_cli 
+    gather_facts: no 
+
+
+    tasks: 
+
+      - name: GATHER ALL FACTS 
+        ios_facts: 
+

@@ -1,0 +1,2 @@
+python task01_native_lldp_descriptions.py --host csr1kv1
+

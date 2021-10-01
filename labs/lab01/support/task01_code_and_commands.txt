@@ -1,0 +1,17 @@
+python task01_get_neighbors.py 
+
+python task01_get_neighbors.py --help
+
+python task01_get_neighbors.py --username=cisco --device=csr1kv1
+
+python task01_get_neighbors.py --username=cisco --device csr1kv1 -p cisco  
+
+python task01_get_neighbors.py -u cisco -d csr1kv1
+
+python task01_get_neighbors.py -u cisco -d csr1kv1 --ask-pass
+
+python task01_get_neighbors.py -u cisco -d csr1kv1 --ask-pass --password devnet
+
+./task01_get_neighbors.py -u cisco -d csr1kv1 --ask-pass
+
+csr-get-lldp -u cisco -d csr1kv1 --ask-pass 
